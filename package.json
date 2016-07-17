@@ -1,7 +1,19 @@
 {
   "name": "efemerideApp",
+  "version": "0.0.5",
+  "description": "App that gets events of that day in other years from wikipedia",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "start": "npm run lint && node index.js"
+  },
+  "author": "Aitor Ibañez <freelance@aitoribanez.com>",
+  "license": "MIT",
   "dependencies": {
     "cheerio": "^0.20.0",
     "request": "^2.73.0"
+  },
+  "devDependencies": {
+    "standard": "^7.1.2"
   }
 }

@@ -3,4 +3,6 @@
 = Instalation =
 
 - npm install
-- node index.js
+- npm start
+
+(- npm run lint for linting with standard)
