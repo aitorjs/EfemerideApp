@@ -3,21 +3,24 @@
 let request = require('request')
 let cheerio = require('cheerio')
 
-let lastDay = getLastDayOfMonth(2016)
-let month = 7 // meterlo en for luego
+let lastDays = getLastDayOfMonth(2016)
+
+let month = 5 // meterlo en for luego
+let lang = 'es'
 let events = {}
 
 start()
 
 function start() {
+  let monthT = toMonth(month)
+  let lastDay = lastDays[month]
 
-  for (var day = 1; day <= 32; day++) {
-    fetch(day, 'julio', 'es', events).then(function(res) {
+  for (var day = 1; day <= lastDay; day++) {
+    fetch(day, monthT, lang, events).then(function(res) {
       events[res.day] = res
-
     })
 
-    setTimeout(function(){ console.log(events) }, 3000)
+    setTimeout(function(){ console.log(events) }, 5000)
   }
 }
 
@@ -67,13 +70,11 @@ function normalize (elem, $, metadata) {
       date: parseInt(date),
       data: capitalizeFirstLetter(data)
     }
-
-    //console.log(`${day}_de_${month}`)
     metadata.push(scraped)
   }
 }
 
-// Utils
+// utils.js
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
@@ -81,8 +82,27 @@ function capitalizeFirstLetter(string) {
 function getLastDayOfMonth(year) {
   var lastDay = []
   for (var month = 1; month <= 12; month++) {
-    lastDay[month] = new Date(year, month, 0).getDate();
+    lastDay[month] = new Date(year, month, 0).getDate() + 1;
   }
 
   return lastDay
+}
+
+function toMonth(number) {
+  let months = ['',
+    'enero',
+    'febrero',
+    'marzo',
+    'abril',
+    'mayo',
+    'junio',
+    'julio',
+    'agosto',
+    'septiembre',
+    'octubre',
+    'noviembre',
+    'diciembre'
+  ]
+
+  return months[number]
 }
