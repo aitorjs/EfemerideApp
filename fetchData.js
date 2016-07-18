@@ -17,23 +17,26 @@ function fetch (day, month, lang, events) {
       if (!error && response.statusCode === 200) {
         var $ = cheerio.load(html)
         var li = $('div#toc.toc').next().next().next().children()
-        var nextUl = $('div#toc.toc').next().next().next().next().next().children()
+        // var nextUl = $('div#toc.toc').next().next().next().next().next().children()
 
         $(li).each(function () {
           normalize($(this), $, metadata)
         })
 
-        // TODO: IF - si en nextUL hay 'Nacimientos', finalizar
-        //          - si en nextUL hay un 'ul', normalize()
+        let next = $('div#toc.toc').next().next().next().next()
 
-        if (nextUl) {
-          $(nextUl).each(function () {
-            normalize($(this), $, metadata)
-          })
+        while (!$(next).is('h2')) {
+          if ($(next).is('ul')) {
+            $(next).children().each(function () {
+              normalize($(this), $, metadata)
+            })
+          }
+          next = $(next).next()
         }
 
         metadata.day = day
         resolve(metadata)
+
         // console.log(metadata)
       }
     })

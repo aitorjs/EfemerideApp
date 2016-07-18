@@ -20,7 +20,7 @@ function start () {
     fetchData.fetch(day, monthT, lang, events).then(function (res) {
       events[res.day] = res
     })
-
-    setTimeout(function () { console.log(events) }, 5000)
   }
+
+  setTimeout(function () { console.log(events) }, 5000)
 }
