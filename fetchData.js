@@ -11,19 +11,17 @@ const fetchData = {
 
 function fetch (day, month, lang, events) {
   return new Promise(function (resolve) {
-    var metadata = []
+    let metadata = []
 
     request(`https://${lang}.wikipedia.org/wiki/${day}_de_${month}`, function (error, response, html) {
       if (!error && response.statusCode === 200) {
-        var $ = cheerio.load(html)
-        var li = $('div#toc.toc').next().next().next().children()
-        // var nextUl = $('div#toc.toc').next().next().next().next().next().children()
+        let $ = cheerio.load(html)
+        let li = $('div#toc.toc').next().next().next().children()
+        let next = $('div#toc.toc').next().next().next().next()
 
         $(li).each(function () {
           normalize($(this), $, metadata)
         })
-
-        let next = $('div#toc.toc').next().next().next().next()
 
         while (!$(next).is('h2')) {
           if ($(next).is('ul')) {

@@ -16,11 +16,11 @@ function start () {
   let monthT = utils.toMonth(month)
   let lastDay = lastDays[month]
 
-  for (var day = 1; day <= lastDay; day++) {
+  for (let day = 1; day <= lastDay; day++) {
     fetchData.fetch(day, monthT, lang, events).then(function (res) {
       events[res.day] = res
     })
   }
 
-  setTimeout(function () { console.log(events) }, 5000)
+  setTimeout(function () { console.log(events) }, 3000)
 }

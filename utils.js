@@ -11,8 +11,8 @@ function capitalizeFirstLetter (string) {
 }
 
 function getLastDayOfMonth (year) {
-  var lastDay = []
-  for (var month = 1; month <= 12; month++) {
+  let lastDay = []
+  for (let month = 1; month <= 12; month++) {
     lastDay[month] = new Date(year, month, 0).getDate()
   }
 
