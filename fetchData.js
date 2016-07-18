@@ -34,8 +34,6 @@ function fetch (day, month, lang, events) {
 
         metadata.day = day
         resolve(metadata)
-
-        // console.log(metadata)
       }
     })
   })
@@ -44,12 +42,13 @@ function fetch (day, month, lang, events) {
 function normalize (elem, $, metadata) {
   let date = $(elem).children().html()
   // let data = $(this).children().parent().text().slice(date.length + 2)
-  let data = $(elem).children().parent().text()
 
   // Para conseguir el siguiente ul aqui dentro
   // $(this).parent().next().next().html())
 
   if (!isNaN(parseInt(date))) {
+    let data = $(elem).children().parent().text().slice(date.length + 2)
+
     let scraped = {
       date: parseInt(date),
       data: utils.capitalizeFirstLetter(data)
