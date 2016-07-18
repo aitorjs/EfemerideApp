@@ -41,10 +41,6 @@ function fetch (day, month, lang, events) {
 
 function normalize (elem, $, metadata) {
   let date = $(elem).children().html()
-  // let data = $(this).children().parent().text().slice(date.length + 2)
-
-  // Para conseguir el siguiente ul aqui dentro
-  // $(this).parent().next().next().html())
 
   if (!isNaN(parseInt(date))) {
     let data = $(elem).children().parent().text().slice(date.length + 2)
