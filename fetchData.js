@@ -12,6 +12,7 @@ const fetchData = {
 function fetch (day, month, lang, events) {
   return new Promise(function (resolve) {
     let metadata = []
+    let tmpData = []
 
     request(`https://${lang}.wikipedia.org/wiki/${day}_de_${month}`, function (error, response, html) {
       if (!error && response.statusCode === 200) {
@@ -22,18 +23,18 @@ function fetch (day, month, lang, events) {
         metadata.day = day
 
         $(li).each(function () {
-          normalize($(this), $, metadata)
+          tmpData.push(normalize($(this), $, metadata))
         })
 
         while (!$(next).is('h2')) {
           if ($(next).is('ul')) {
             $(next).children().each(function () {
-              normalize($(this), $, metadata)
+              tmpData.push(normalize($(this), $, metadata))
             })
           }
           next = $(next).next()
         }
-
+        metadata.data = tmpData
         resolve(metadata)
       }
     })
@@ -42,16 +43,25 @@ function fetch (day, month, lang, events) {
 
 function normalize (elem, $, metadata) {
   let date = $(elem).children().html()
+  let description = $(elem).children().parent().text().slice(date.length + 2)
+  let scraped = {}
 
   if (!isNaN(parseInt(date))) {
-    let data = $(elem).children().parent().text().slice(date.length + 2)
-
-    let scraped = {
+    scraped = {
       date: parseInt(date),
-      data: utils.capitalizeFirstLetter(data)
+      description: utils.capitalizeFirstLetter(description)
     }
-    metadata.push(scraped)
+  } else {
+    date = $(elem).text().split(':')
+    description = date[1].trim()
+
+    scraped = {
+      date: date[0],
+      description: utils.capitalizeFirstLetter(description)
+    }
   }
+
+  return scraped
 }
 
 module.exports = fetchData

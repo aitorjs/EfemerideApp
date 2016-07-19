@@ -11,7 +11,7 @@ let lang = 'es'
 let events = {}
 // let lastDays = utils.getLastDayOfMonth(year)
 
-/*database.createTable().then(function (db) {
+/* database.createTable().then(function (db) {
   database.insert({
     day: 2,
     data: [{
@@ -41,6 +41,7 @@ function start () {
   // lastDay
   for (let day = 1; day <= 1; day++) {
     fetchData.fetch(day, monthT, lang, events).then(function (res) {
+      console.log(res)
       events[res.day] = res
     })
   }
