@@ -23,13 +23,13 @@ function fetch (day, month, lang, events) {
         metadata.day = day
 
         $(li).each(function () {
-          tmpData.push(normalize($(this), $, metadata, day))
+          tmpData.push(normalize($(this), $, metadata))
         })
 
         while (!$(next).is('h2')) {
           if ($(next).is('ul')) {
             $(next).children().each(function () {
-              tmpData.push(normalize($(this), $, metadata, day))
+              tmpData.push(normalize($(this), $, metadata))
             })
           }
           next = $(next).next()
@@ -42,7 +42,7 @@ function fetch (day, month, lang, events) {
   })
 }
 
-function normalize (elem, $, metadata, day) {
+function normalize (elem, $, metadata) {
   let date = $(elem).children().html()
   let description = {}
   let scraped = {}
@@ -52,7 +52,9 @@ function normalize (elem, $, metadata, day) {
     description = $(elem).children().parent().text().slice(date.length + 2)
   } else {
     date = $(elem).text().split(':')
-    date.length >= 2 ? description = date[1].trim() : description = date[0].replace('\n', '')
+    date.length >= 2
+      ? description = date[1].trim()
+      : description = date[0].replace('\n', '')
   }
 
   scraped = {
