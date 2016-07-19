@@ -2,16 +2,16 @@
 
 let utils = require('./utils')
 let fetchData = require('./fetchData')
-let database = require('./database')
+// let database = require('./database')
 
-let year = 2016
+// let year = 2016
 let month = 7 // TODO: meterlo en for para que funcione por año ???
 let lang = 'es'
 
 let events = {}
-let lastDays = utils.getLastDayOfMonth(year)
+// let lastDays = utils.getLastDayOfMonth(year)
 
-database.createTable().then(function (db) {
+/*database.createTable().then(function (db) {
   database.insert({
     day: 2,
     data: [{
@@ -31,15 +31,15 @@ setTimeout(function () {
     let data = JSON.parse(res[0]['data'])
     console.log(data[0]['date'])
   })
-}, 3000)
+}, 3000) */
 
 start()
 
 function start () {
   let monthT = utils.toMonth(month)
-  let lastDay = lastDays[month]
-
-  for (let day = 1; day <= lastDay; day++) {
+  // let lastDay = lastDays[month]
+  // lastDay
+  for (let day = 1; day <= 1; day++) {
     fetchData.fetch(day, monthT, lang, events).then(function (res) {
       events[res.day] = res
     })
