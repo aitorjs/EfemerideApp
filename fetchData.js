@@ -23,17 +23,18 @@ function fetch (day, month, lang, events) {
         metadata.day = day
 
         $(li).each(function () {
-          tmpData.push(normalize($(this), $, metadata))
+          tmpData.push(normalize($(this), $, metadata, day))
         })
 
         while (!$(next).is('h2')) {
           if ($(next).is('ul')) {
             $(next).children().each(function () {
-              tmpData.push(normalize($(this), $, metadata))
+              tmpData.push(normalize($(this), $, metadata, day))
             })
           }
           next = $(next).next()
         }
+
         metadata.data = tmpData
         resolve(metadata)
       }
@@ -41,24 +42,22 @@ function fetch (day, month, lang, events) {
   })
 }
 
-function normalize (elem, $, metadata) {
+function normalize (elem, $, metadata, day) {
   let date = $(elem).children().html()
-  let description = $(elem).children().parent().text().slice(date.length + 2)
+  let description = {}
   let scraped = {}
 
   if (!isNaN(parseInt(date))) {
-    scraped = {
-      date: parseInt(date),
-      description: utils.capitalizeFirstLetter(description)
-    }
+    date = parseInt(date)
+    description = $(elem).children().parent().text().slice(date.length + 2)
   } else {
     date = $(elem).text().split(':')
-    description = date[1].trim()
+    date.length >= 2 ? description = date[1].trim() : description = date[0].replace('\n', '')
+  }
 
-    scraped = {
-      date: date[0],
-      description: utils.capitalizeFirstLetter(description)
-    }
+  scraped = {
+    date,
+    description: utils.capitalizeFirstLetter(description)
   }
 
   return scraped
