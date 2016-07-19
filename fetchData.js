@@ -45,7 +45,6 @@ function fetch (day, month, lang, events) {
 function normalize (elem, $, metadata) {
   let date = $(elem).children().html()
   let description = {}
-  let scraped = {}
 
   if (!isNaN(parseInt(date))) {
     date = parseInt(date)
@@ -57,12 +56,10 @@ function normalize (elem, $, metadata) {
       : description = date[0].replace('\n', '')
   }
 
-  scraped = {
+  return {
     date,
     description: utils.capitalizeFirstLetter(description)
   }
-
-  return scraped
 }
 
 module.exports = fetchData

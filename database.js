@@ -8,13 +8,13 @@ database.createTable = function () {
   return new Promise(function (resolve, reject) {
     db.run('DROP TABLE IF EXISTS events')
     db.run('CREATE TABLE IF NOT EXISTS events (id INTEGER PRIMARY KEY AUTOINCREMENT, day INTEGER, data TEXT)')
-    console.log('La tabla usuarios ha sido correctamente creada')
+    console.log('La tabla de eventos ha sido correctamente creada')
     resolve(db)
   })
 }
 
 database.insert = function (data) {
-  console.log('Insertando...')
+  console.log(`Insertando día ${data.day}...`)
   var stmt = db.prepare('INSERT INTO events VALUES (?,?,?)')
   stmt.run(null, data.day, JSON.stringify(data.data))
   stmt.finalize()
