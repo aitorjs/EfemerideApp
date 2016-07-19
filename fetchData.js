@@ -19,6 +19,8 @@ function fetch (day, month, lang, events) {
         let li = $('div#toc.toc').next().next().next().children()
         let next = $('div#toc.toc').next().next().next().next()
 
+        metadata.day = day
+
         $(li).each(function () {
           normalize($(this), $, metadata)
         })
@@ -32,7 +34,6 @@ function fetch (day, month, lang, events) {
           next = $(next).next()
         }
 
-        metadata.day = day
         resolve(metadata)
       }
     })
