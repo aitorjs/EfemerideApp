@@ -3,7 +3,8 @@
 const utils = {
   capitalizeFirstLetter,
   getLastDayOfMonth,
-  toMonth
+  toMonth,
+  makeDaysArray
 }
 
 function capitalizeFirstLetter (string) {
@@ -36,6 +37,17 @@ function toMonth (number) {
   ]
 
   return months[number]
+}
+
+function makeDaysArray (lastDay) {
+  var day = 1
+  var days = []
+
+  while (day <= lastDay) {
+    days.push(day++)
+  }
+
+  return days
 }
 
 module.exports = utils

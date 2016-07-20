@@ -18,13 +18,13 @@ database.createTable().then(function (db) {
 function start () {
   let monthT = utils.toMonth(month)
   let lastDay = lastDays[month]
+  let days = utils.makeDaysArray(lastDay)
 
-  for (let day = 1; day <= lastDay; day++) {
+  days.map(function (day) {
     fetchData.fetch(day, monthT, lang, events).then(function (res) {
-      // console.log(res)
       database.insert(res)
     })
-  }
+  })
 
   // setTimeout(function () { console.log(events) }, 3000)
 }
