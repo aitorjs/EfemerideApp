@@ -3,8 +3,10 @@
 = Instalation =
 
 - npm install
-- npm start
+- npm run deploy
 
 (npm run lint for linting with standard)
 
-SQLite3 is used as database
+SQLite3 is used as database.
+
+Open client.html, to see the last changes on the client.
