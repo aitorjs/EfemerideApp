@@ -48,6 +48,7 @@ function makeDaysArray (lastDay) {
   }
 
   return days
+  // var days = Array.apply(null, Array(31)).map(function (_, i) {return i + 1;})
 }
 
 module.exports = utils

@@ -23,13 +23,13 @@ function fetch (day, month, lang, events) {
         metadata.day = day
 
         $(li).each(function () {
-          tmpData.push(normalize($(this), $, metadata))
+          tmpData.push(normalize($(this), $))
         })
 
         while (!$(next).is('h2')) {
           if ($(next).is('ul')) {
             $(next).children().each(function () {
-              tmpData.push(normalize($(this), $, metadata))
+              tmpData.push(normalize($(this), $))
             })
           }
           next = $(next).next()
@@ -42,7 +42,7 @@ function fetch (day, month, lang, events) {
   })
 }
 
-function normalize (elem, $, metadata) {
+function normalize (elem, $) {
   let date = $(elem).children().html()
   let description = {}
 
