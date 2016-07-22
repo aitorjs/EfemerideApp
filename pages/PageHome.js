@@ -1,5 +1,4 @@
 import React from 'react'
-require('../styles.scss')
 
 export default class PageHome extends React.Component {
   render () {

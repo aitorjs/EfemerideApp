@@ -1,10 +1,10 @@
 import React from 'react'
-// import axios from 'axios'
+import EfemerideList from './EfemerideList'
 
 export default class AppComponent extends React.Component {
   render () {
     return <div>
-      <h1>HOLA</h1>
+      <EfemerideList />
       {this.props.children}
     </div>
   }
