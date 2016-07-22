@@ -10,9 +10,13 @@ export default class EfemerideList extends React.Component {
   render () {
     return <div className='container' id='list'>
       <EfemerideListHeader />
-      <EfemerideListItems>
-        <EfemerideListItem />
-      </EfemerideListItems>
+
+      <EfemerideListItem />
+      <EfemerideListItem />
+      <EfemerideListItem />
+      <EfemerideListItem />
+      <EfemerideListItem />
+
       <EfemerideListFooter />
     </div>
   }
