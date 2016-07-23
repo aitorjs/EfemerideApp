@@ -12,12 +12,12 @@
   - npm install
 - npm run build
 
-- Open client.html, to see the last changes on the client.
+- Open *client.html*, to see the last changes on the client.
 
-- npm run lint for linting with standard.
+- *npm run lint* for linting with standard.
 
-- npm run deploy to build SQLite3 with wikipedia events datas. The client and
-the data area not linked yet!
+- *npm run* deploy to build SQLite3 with wikipedia events datas. **The client and
+the data area not linked yet!**
 
 
 
