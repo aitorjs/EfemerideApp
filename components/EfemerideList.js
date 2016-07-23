@@ -2,7 +2,6 @@ import React from 'react'
 
 import EfemerideListHeader from './EfemerideListHeader'
 import EfemerideListFooter from './EfemerideListFooter'
-import EfemerideListItems from './EfemerideListItems'
 import EfemerideListItem from './EfemerideListItem'
 import './efemerideList.scss'
 
