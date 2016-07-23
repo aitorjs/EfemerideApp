@@ -2,20 +2,22 @@
 
 = Instalation =
 
-- git clone https://github.com/aitoribanez/efemerideApp.git
-- cd efemerideApp
+- git clone https://github.com/aitoribanez/EfemerideApp.git
+- cd EfemerideApp
 - npm install
 - On components, to install EfemerideList make those commands:
-  cd components
-  git clone https://github.com/aitoribanez/efemerideList.git
-  cd EfemerideList
-  npm install
+  - cd components
+  - git clone https://github.com/aitoribanez/EfemerideList.git
+  - cd EfemerideList
+  - npm install
 - npm run build
 
-Open client.html, to see the last changes on the client.
+- Open client.html, to see the last changes on the client.
 
-npm run lint for linting with standard.
-npm run deploy to build SQLite3 with wikipedia events datas.
+- npm run lint for linting with standard.
+
+- npm run deploy to build SQLite3 with wikipedia events datas. The client and
+the data area not linked yet!
 
 
 
