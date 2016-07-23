@@ -10,3 +10,5 @@
 SQLite3 is used as database.
 
 Open client.html, to see the last changes on the client.
+
+Hacer <EfemerideList> generica para sacar una lista con datos que vienen de un array de objetos.
