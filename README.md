@@ -14,6 +14,8 @@
 
 - Open *client.html*, to see the last changes on the client.
 
+= Commands =
+
 - *npm run lint* for linting with standard.
 
 - *npm run* deploy to build SQLite3 with wikipedia events datas. **The client and
