@@ -8,7 +8,7 @@ import './efemerideList.scss'
 export default class EfemerideList extends React.Component {
   render () {
     return <div className='container' id='list'>
-      <EfemerideListHeader />
+      <EfemerideListHeader title='efemerides' date='12/06/2016' />
 
       <EfemerideListItem />
       <EfemerideListItem />
@@ -16,7 +16,7 @@ export default class EfemerideList extends React.Component {
       <EfemerideListItem />
       <EfemerideListItem />
 
-      <EfemerideListFooter />
+      <EfemerideListFooter author='Aitor Ibañez' url='https://aitoribanez.com' />
     </div>
   }
 }
