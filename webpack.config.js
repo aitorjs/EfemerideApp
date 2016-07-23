@@ -1,15 +1,14 @@
 'use strict'
 
-const webpack = require('webpack')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: {
-    main: './app.js',
+    main: './app.js'
   },
   output: {
     path: './public/',
-    filename: 'app.js',
+    filename: 'app.js'
   },
   module: {
     preLoaders: [
