@@ -1,5 +1,5 @@
 import React from 'react'
-import './efemerideListFooter.scss'
+import './styles.scss'
 
 export default class EfemerideListFooter extends React.Component {
   render () {

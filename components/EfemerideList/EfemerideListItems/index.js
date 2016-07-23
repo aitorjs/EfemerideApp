@@ -1,6 +1,6 @@
 import React from 'react'
 
-import EfemerideListItem from './EfemerideListItem'
+import EfemerideListItem from '../EfemerideListItem'
 
 export default class EfemerideListItems extends React.Component {
   render () {

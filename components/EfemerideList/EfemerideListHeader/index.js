@@ -1,5 +1,5 @@
 import React from 'react'
-import './efemerideListHeader.scss'
+import './styles.scss'
 
 export default class EfemerideListHeader extends React.Component {
   render () {
