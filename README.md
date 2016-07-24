@@ -5,11 +5,6 @@
 - git clone https://github.com/aitoribanez/EfemerideApp.git
 - cd EfemerideApp
 - npm install
-- On components, to install EfemerideList make those commands:
-  - cd components
-  - git clone https://github.com/aitoribanez/EfemerideList.git
-  - cd EfemerideList
-  - npm install
 - npm run build
 
 - Open *client.html*, to see the last changes on the client.

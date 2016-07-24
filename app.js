@@ -3,7 +3,6 @@
 import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import EfemerideList from 'EfemerideList'
 
-import AppComponent from './components/AppComponent'
-
-ReactDOM.render(<AppComponent />, document.getElementById('container'))
+ReactDOM.render(<EfemerideList />, document.getElementById('container'))

@@ -2,7 +2,7 @@
   "name": "efemerideApp",
   "version": "0.0.5",
   "description": "App that gets events of that day in other years from wikipedia",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "webpack",
     "deploy": "npm run lint && node index.js",
@@ -11,6 +11,7 @@
   "author": "Aitor Ibañez <freelance@aitoribanez.com>",
   "license": "MIT",
   "dependencies": {
+    "EfemerideList": "^0.5.6",
     "cheerio": "^0.20.0",
     "materialize-css": "^0.97.6",
     "react": "^15.2.1",
