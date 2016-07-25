@@ -11,7 +11,7 @@
   "author": "Aitor Ibañez <freelance@aitoribanez.com>",
   "license": "MIT",
   "dependencies": {
-    "EfemerideList": "^0.5.8",
+    "EfemerideList": "^0.5.10",
     "cheerio": "^0.20.0",
     "materialize-css": "^0.97.6",
     "react": "^15.2.1",
