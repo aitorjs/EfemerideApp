@@ -1,6 +1,6 @@
-== Get efemerides of the day ==
+## Get efemerides of the day
 
-= Instalation =
+# Instalation 
 
 - git clone https://github.com/aitoribanez/EfemerideApp.git
 - cd EfemerideApp
@@ -9,7 +9,7 @@
 
 - Open *client.html*, to see the last changes on the client.
 
-= Commands =
+# Commands
 
 - *npm run lint* for linting with standard.
 
